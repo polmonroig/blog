@@ -23,7 +23,6 @@ class Root extends React.Component {
           .then(res => res.json())
           .then(
             (result) => {
-              console.log(result); 
               this.setState({
                 isLoaded: true,
                 data: result
@@ -44,7 +43,6 @@ class Root extends React.Component {
     render(){
         if(this.state.isLoaded){
             const data = this.state.data;
-            console.log(data);
             return (
                 <>
                 <h1>Personal Blog</h1>
