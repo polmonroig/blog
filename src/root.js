@@ -1,44 +1,58 @@
 import React from 'react';
-import Post from './post'; 
+import Post from './post';
 
-// http request for articles 
+// http request for articles
 
 
 class Root extends React.Component {
-   
+
 
     constructor(props){
         super(props);
         this.state = {
-            error: null, 
-            isLoaded: false, 
-            data : []
+            error: null,
+            isLoaded: false,
+            data: null
         };
-        this.getData();
     }
 
-    getData = () => {
+    componentDidMount() {
+
         const url = 'https://dev.to/api/articles?username=polmonroig';
-        const http = new XMLHttpRequest(); 
-        http.open("GET", url);
-        http.send();
-        http.onreadystatechange=(e)=>{
-            this.setState({
-                isLoaded : true, 
-                data : http.responseText
-            });
-        }
+        fetch(url)
+          .then(res => res.json())
+          .then(
+            (result) => {
+              console.log(result); 
+              this.setState({
+                isLoaded: true,
+                data: result
+              });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
     }
 
     render(){
         if(this.state.isLoaded){
+            const data = this.state.data;
+            console.log(data);
             return (
                 <>
                 <h1>Personal Blog</h1>
-                <Post title="Machine learning tutorial 1"></Post>
-                <Post title="Compressing images with C++"></Post>
+                {data.map(item => (
+                    <Post title={item.title}></Post>
+                ))}
                 </>
-            );    
+            );
         }
         else{
             return (
@@ -48,7 +62,7 @@ class Root extends React.Component {
                 </>
             );
         }
-        
+
     }
 }
 
