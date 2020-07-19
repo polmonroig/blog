@@ -1,5 +1,6 @@
 import React from 'react';
-import Post from './post';
+import './styles/root.css'
+import PostHeader from './post_header';
 
 // http request for articles
 
@@ -27,16 +28,7 @@ class Root extends React.Component {
                 isLoaded: true,
                 data: result
               });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+           }
           )
     }
 
@@ -46,12 +38,13 @@ class Root extends React.Component {
             console.log(data); 
             return (
                 <>
-                <h1>Personal Blog</h1>
+                <div id="title">Personal Blog</div>
                 {data.map(item => (
-                    <Post title={item.title} content={item.description}
+                    <PostHeader title={item.title} content={item.description}
                           comments={item.comments_count}
-                          reactions={item.public_reactions_count}></Post>
-
+                          reactions={item.public_reactions_count}
+                          date={item.readable_publish_date}
+                    ></PostHeader>      
                 ))}
                 </>
             );
@@ -59,7 +52,7 @@ class Root extends React.Component {
         else{
             return (
                 <>
-                <h1>Personal Blog</h1>
+                <div id="title">Personal Blog</div>
                 <h2>Loading...</h2>
                 </>
             );
