@@ -43,11 +43,15 @@ class Root extends React.Component {
     render(){
         if(this.state.isLoaded){
             const data = this.state.data;
+            console.log(data); 
             return (
                 <>
                 <h1>Personal Blog</h1>
                 {data.map(item => (
-                    <Post title={item.title}></Post>
+                    <Post title={item.title} content={item.description}
+                          comments={item.comments_count}
+                          reactions={item.public_reactions_count}></Post>
+
                 ))}
                 </>
             );
