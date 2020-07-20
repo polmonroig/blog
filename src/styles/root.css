@@ -1,4 +1,9 @@
 
+
+* {
+  box-sizing: border-box;
+}
+
 #title{
    height: 100px; 
    line-height: 100px;
@@ -12,6 +17,11 @@
     cursor: pointer;  
 }
 
+#post_list{
+    margin: 0 auto;
+    width: 25%; 
+
+}
 
 #loading{
     margin: 0 auto;

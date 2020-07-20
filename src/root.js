@@ -76,6 +76,7 @@ class Root extends React.Component {
             return (
                 <>
                 <div id="title">{this.title}</div>
+                <div id="post_list">
                 {data.map(item => (
                     <PostHeader onClick={() => this.openPost(item.id)}
                           key={item.title} title={item.title} content={item.description}
@@ -84,6 +85,7 @@ class Root extends React.Component {
                           date={item.readable_publish_date}
                     ></PostHeader>      
                 ))}
+                </div>
                 </>
             );
         }
