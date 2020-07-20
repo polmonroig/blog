@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/root.css'; 
 import PostHeader from './post_header';
 import Post from './post';
-
+import ReactLoading from 'react-loading';
 // http request for articles
 
 
@@ -17,7 +17,7 @@ class Root extends React.Component {
             data: null,
             openPost: false,
         };
-        this.title = "My Blog"; 
+        this.title = "Pol's Blog"; 
     }
 
     componentDidMount() {
@@ -91,7 +91,7 @@ class Root extends React.Component {
             return (
                 <>
                 <div id="title">{this.title}</div>
-                <h2>Loading...</h2>
+                <ReactLoading id="loading" type="bars" color="black" height={'5%'} width={'5%'} /> 
                 </>
             );
         }

@@ -11,3 +11,10 @@
 #title:hover{
     cursor: pointer;  
 }
+
+
+#loading{
+    margin: 0 auto;
+    position: relative;  
+
+}
