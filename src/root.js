@@ -17,10 +17,14 @@ class Root extends React.Component {
             data: null,
             openPost: false,
         };
+        this.title = "My Blog"; 
     }
 
     componentDidMount() {
+        this.fetchAllPosts(); 
+    }
 
+    fetchAllPosts = () => {
         const url = 'https://dev.to/api/articles?username=polmonroig';
         fetch(url)
           .then(res => res.json())
@@ -32,6 +36,7 @@ class Root extends React.Component {
               });
            }
           )
+
     }
 
     openPost = (id) => {
@@ -48,11 +53,19 @@ class Root extends React.Component {
           )
     }
 
+    resetPage = (id) => {
+        this.setState({
+            openPost: false,
+            isLoaded: false 
+        })
+        this.fetchAllPosts(); 
+    }
+
     render(){
         if(this.state.openPost){
             return (
                 <>
-                <div id="title">Personal Blog</div>
+                <div onClick={this.resetPage} id="title">{this.title}</div>
                 <Post content={this.state.data.body_html}></Post>
                 </>
             ); 
@@ -62,7 +75,7 @@ class Root extends React.Component {
             console.log(data); 
             return (
                 <>
-                <div id="title">Personal Blog</div>
+                <div id="title">{this.title}</div>
                 {data.map(item => (
                     <PostHeader onClick={() => this.openPost(item.id)}
                           key={item.title} title={item.title} content={item.description}
@@ -77,7 +90,7 @@ class Root extends React.Component {
         else{
             return (
                 <>
-                <div id="title">Personal Blog</div>
+                <div id="title">{this.title}</div>
                 <h2>Loading...</h2>
                 </>
             );

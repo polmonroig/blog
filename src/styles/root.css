@@ -4,3 +4,7 @@
    text-align: center; 
    font-size: 100px; 
 }
+
+#title:hover{
+    cursor: pointer;  
+}

@@ -1,12 +1,12 @@
 import React from 'react'; 
-
+import './styles/post.css'; 
 
 class Post extends React.Component{
     
 
     render(){
         return (
-            <div dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
+            <div id="post" dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
         );  
     }
 

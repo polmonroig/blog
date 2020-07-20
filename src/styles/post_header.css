@@ -1,0 +1,10 @@
+.post_header{
+    width: 25%;
+    position: relative;
+    left: 35%;  
+}
+
+.post_header:hover{
+    cursor: pointer;      
+    background-color: #7e85d8;
+}
