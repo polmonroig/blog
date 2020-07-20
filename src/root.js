@@ -1,6 +1,7 @@
 import React from 'react';
-import './styles/root.css'
+import './styles/root.css'; 
 import PostHeader from './post_header';
+import Post from './post';
 
 // http request for articles
 
@@ -13,7 +14,8 @@ class Root extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            data: null
+            data: null,
+            openPost: false,
         };
     }
 
@@ -32,15 +34,38 @@ class Root extends React.Component {
           )
     }
 
+    openPost = (id) => {
+        const url = 'https://dev.to/api/articles/' + id;
+        fetch(url)
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                openPost: true,
+                data: result
+              });
+           }
+          )
+    }
+
     render(){
-        if(this.state.isLoaded){
+        if(this.state.openPost){
+            return (
+                <>
+                <div id="title">Personal Blog</div>
+                <Post content={this.state.data.body_html}></Post>
+                </>
+            ); 
+        } 
+        else if(this.state.isLoaded){
             const data = this.state.data;
             console.log(data); 
             return (
                 <>
                 <div id="title">Personal Blog</div>
                 {data.map(item => (
-                    <PostHeader title={item.title} content={item.description}
+                    <PostHeader onClick={() => this.openPost(item.id)}
+                          key={item.title} title={item.title} content={item.description}
                           comments={item.comments_count}
                           reactions={item.public_reactions_count}
                           date={item.readable_publish_date}
