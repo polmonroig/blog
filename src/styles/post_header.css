@@ -9,5 +9,6 @@
 
 .post_header:hover{
     cursor: pointer;      
-    background-color: #7e85d8;
+    background-color: black;
+    color: white; 
 }
