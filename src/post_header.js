@@ -7,7 +7,7 @@ class PostHeader extends React.Component{
     render(){
         return (
             <>
-            <div class="post_header" onClick={this.props.onClick}>
+            <div className="post_header" onClick={this.props.onClick}>
             <h2>{this.props.title}</h2>
             <p>{this.props.content}</p>
             <b>Date </b>{this.props.date}<br/>
