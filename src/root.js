@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/root.css'; 
+import './styles/root.css';
 import PostHeader from './post_header';
 import Post from './post';
 import ReactLoading from 'react-loading';
@@ -17,11 +17,11 @@ class Root extends React.Component {
             data: null,
             openPost: false,
         };
-        this.title = "Pol's Blog"; 
+        this.title = "Pol's Blog";
     }
 
     componentDidMount() {
-        this.fetchAllPosts(); 
+        this.fetchAllPosts();
     }
 
     fetchAllPosts = () => {
@@ -56,9 +56,9 @@ class Root extends React.Component {
     resetPage = (id) => {
         this.setState({
             openPost: false,
-            isLoaded: false 
+            isLoaded: false
         })
-        this.fetchAllPosts(); 
+        this.fetchAllPosts();
     }
 
     render(){
@@ -68,11 +68,11 @@ class Root extends React.Component {
                 <div onClick={this.resetPage} id="title">{this.title}</div>
                 <Post content={this.state.data.body_html}></Post>
                 </>
-            ); 
-        } 
+            );
+        }
         else if(this.state.isLoaded){
             const data = this.state.data;
-            console.log(data); 
+            console.log(data);
             return (
                 <>
                 <div id="title">{this.title}</div>
@@ -83,7 +83,7 @@ class Root extends React.Component {
                           comments={item.comments_count}
                           reactions={item.public_reactions_count}
                           date={item.readable_publish_date}
-                    ></PostHeader>      
+                    ></PostHeader>
                 ))}
                 </div>
                 </>
@@ -93,7 +93,7 @@ class Root extends React.Component {
             return (
                 <>
                 <div id="title">{this.title}</div>
-                <ReactLoading id="loading" type="bars" color="black" height={'5%'} width={'5%'} /> 
+                <ReactLoading id="loading" type="bars" color="black" height={'5%'} width={'5%'} />
                 </>
             );
         }
