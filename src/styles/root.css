@@ -24,6 +24,7 @@ html, body, #root{
    margin-bottom: 20px;
 }
 
+
 #title:hover{
     cursor: pointer;
 }
@@ -38,4 +39,25 @@ html, body, #root{
     margin: 0 auto;
     position: relative;
 
+}
+
+
+/*MEDIA*/
+
+@media (max-width:1800px){
+    #post_list {
+        width: 50%;
+    }
+    #title{
+        font-size: 75px;
+    }
+}
+
+@media (max-width:1000px){
+    #post_list {
+        width: 75%;
+    }
+    #title{
+        font-size: 50px; 
+    }
 }
