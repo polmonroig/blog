@@ -9,6 +9,19 @@
     margin-bottom: 20px;
 }
 
+@media (max-width:1800px){
+    #post {
+        width: 50%;
+    }
+}
+
+@media (max-width:1000px){
+    #post {
+        width: 75%;
+    }
+
+}
+
 
 
 img{
@@ -44,5 +57,5 @@ code{
 }
 
 .c1{
-    color: #6a737d; 
+    color: #6a737d;
 }
