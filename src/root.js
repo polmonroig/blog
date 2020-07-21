@@ -40,6 +40,9 @@ class Root extends React.Component {
     }
 
     openPost = (id) => {
+        this.setState({
+            isLoaded: false
+        });
         const url = 'https://dev.to/api/articles/' + id;
         fetch(url)
           .then(res => res.json())
