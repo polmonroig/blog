@@ -59,3 +59,14 @@ code{
 .c1{
     color: #6a737d;
 }
+
+/*TABLE STYLE*/
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+ 
+}
+
+table, th, td {
+  border: 1px solid black;
+}
