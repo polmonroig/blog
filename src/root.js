@@ -17,7 +17,7 @@ class Root extends React.Component {
             data: null,
             openPost: false,
         };
-        this.title = "Pol's Blog";
+        this.title = "The Silicon Corner";
     }
 
     componentDidMount() {
@@ -69,7 +69,7 @@ class Root extends React.Component {
             return (
                 <>
                 <div onClick={this.resetPage} id="title">{this.title}</div>
-                <Post content={this.state.data.body_html}></Post>
+                <Post content={this.state.data.body_html} title={this.state.data.title}></Post>
                 </>
             );
         }

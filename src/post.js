@@ -5,10 +5,14 @@ class Post extends React.Component{
 
 
     render(){
+        // <div id="post_meta" ></div> 
         return (
             <>
-            <div id="post_meta" ></div>
-            <div id="post" dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
+
+            <div id="post">
+                <div id="post_title">{this.props.title}</div>
+                <div id="post_text" dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
+            </div>
             </>
         );
     }
