@@ -19,7 +19,15 @@ iframe{
     font-size: 45px;
 }
 
-
+.meta_button{
+    margin-left: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+}
 
 @media (max-width:1800px){
     #post,#post_meta {

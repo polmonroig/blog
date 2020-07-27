@@ -71,7 +71,8 @@ class Root extends React.Component {
                 <div onClick={this.resetPage} id="title">{this.title}</div>
                 <Post content={this.state.data.body_html} title={this.state.data.title}
                               tags={this.state.data.tags}
-                              url={this.state.data.url}></Post>
+                              url={this.state.data.url}
+                              mainMenu={this.resetPage}></Post>
                 </>
             );
         }
